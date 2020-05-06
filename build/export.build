@@ -1,0 +1,6 @@
+$out_root/
+{
+  include libasio/
+}
+
+export $out_root/libasio/$import.target

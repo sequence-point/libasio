@@ -1,0 +1,20 @@
+int_libs = # Interface dependencies.
+imp_libs = # Implementation dependencies.
+
+lib{asio}: {hxx ixx txx}{**} $imp_libs $int_libs
+
+# Build options.
+#
+cxx.poptions =+ "-I$out_root" "-I$src_root"
+cxx.poptions =+ "-I$out_root/libasio" "-I$src_root/libasio"
+
+# Export options.
+#
+lib{asio}:
+{
+  cxx.export.poptions = "-I$out_root" "-I$src_root"
+  cxx.export.poptions =+ "-I$out_root/libasio" "-I$src_root/libasio"
+	cxx.export.poptions =+ -DASIO_STANDALONE
+	cxx.export.poptions =+ -DASIO_NO_DEPRECATED
+  cxx.export.libs = $int_libs -lpthread
+}
