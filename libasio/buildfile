@@ -18,3 +18,9 @@ lib{asio}:
 	cxx.export.poptions =+ -DASIO_NO_DEPRECATED
   cxx.export.libs = $int_libs -lpthread
 }
+
+{hxx ixx txx}{*}:
+{
+  install         = include/
+  install.subdirs = true
+}
